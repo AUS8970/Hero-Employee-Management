@@ -9,8 +9,8 @@ const MainRoutes = () => {
   const hideNavAndFot = location.pathname.includes('dashboard');
   
   return (
-    <div className='font-montserrat'>
-      { hideNavAndFot || <Navber /> }
+    <div className='font-montserrat max-w-screen-2xl mx-auto'>
+      { hideNavAndFot || <Navber />}
       <Outlet />
       { hideNavAndFot || <Footer /> }
     </div>

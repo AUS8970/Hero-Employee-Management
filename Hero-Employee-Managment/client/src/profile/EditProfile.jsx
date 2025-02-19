@@ -35,13 +35,19 @@ const EditProfile = () => {
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
+    
     const formData = new FormData();
     formData.append("image", file);
 
     try {
-      const response = await axiosSecure.post("/upload", formData);
-      setValue("image", response.data.url);
-      setImagePreview(response.data.url);
+      const response = await axiosSecure.patch(`/users/${user.email}`, { image: URL.createObjectURL(file) });
+      
+      if (response.data.modifiedCount > 0) {
+        toast.success("Profile image updated!");
+        setValue("image", URL.createObjectURL(file));
+        setImagePreview(URL.createObjectURL(file));
+      }
+      
     } catch (error) {
       console.error("Image upload failed", error);
       toast.error("Image upload failed");
@@ -50,7 +56,8 @@ const EditProfile = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axiosSecure.put(`/users/${user?.email}`, data);
+      console.log(data)
+      await axiosSecure.patch(`/users/${user?.email}`, data);
       refetch();
       toast.success("Profile updated successfully!");
     } catch (error) {
@@ -61,7 +68,7 @@ const EditProfile = () => {
 
   if (isLoading) {
     return <div className="flex items-center justify-center min-h-screen"> <Spinner /> </div>;
-  }
+  };
 
   return (
     <div className="container mx-auto px-8 py-10 flex flex-col items-center">
@@ -81,7 +88,8 @@ const EditProfile = () => {
         
         <label className="text-gray-700">Role</label>
         <select {...register("role")} className="border p-2 rounded w-full">
-          <option value="User">Employee</option>
+          <option disabled>Admin</option>
+          <option value="Employee">Employee</option>
           <option value="HR">HR</option>
         </select>
         

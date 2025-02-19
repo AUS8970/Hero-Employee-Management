@@ -186,6 +186,40 @@ async function run() {
       res.send(result);
     });
 
+    // TODO: Not Working
+    app.patch('/users/:email', async(req, res) => {
+      const data = req.body;
+      const filter = { email: req.params.email };
+      const updatedDoc = {
+        $set: {
+          name: data.name,
+          designation: data.designation,
+          salary: data.salary,
+          bank_account_no: data.bank_account_no,
+          role: data.role,
+          image: data.image,
+        }
+      };
+      const result = await userCollection.updateOne(filter, updatedDoc);
+      console.log("Update Result:", result);
+      res.send(result);
+    });
+
+    app.patch('/work-sheet/:id', verifyToken, async (req, res) => {
+      const item = req.body;
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) }
+      const updatedDoc = {
+        $set: {
+          task: item.task,
+          hoursWorked: item.hoursWorked,
+          date: item.date,
+        }
+      }
+      const result = await workSheetCollection.updateOne(filter, updatedDoc)
+      res.send(result);
+    });
+
     app.patch('/employee/update-salary/:id', async (req, res) => {
       const id = req.params.id;
       const { salary } = req.body;

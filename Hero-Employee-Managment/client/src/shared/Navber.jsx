@@ -98,6 +98,16 @@ function NavList() {
 
   return (
     <List className="mt-4 p-0 lg:mb-0 lg:mt-0 lg:flex-row lg:p-1">
+      <NavLink to={"/"}>
+        <Typography as="a" variant="small" color="blue-gray" className="font-medium">
+          <ListItem className="flex items-center gap-2 py-2 pr-4"> Home </ListItem>
+        </Typography>
+      </NavLink>
+      <NavLink to={"/all-service"}>
+        <Typography as="a" variant="small" color="blue-gray" className="font-medium">
+          <ListItem className="flex items-center gap-2 py-2 pr-4"> All Service </ListItem>
+        </Typography>
+      </NavLink>
       <NavLink to={dashboardRoute}>
         <Typography as="a" variant="small" color="blue-gray" className="font-medium">
           <ListItem className="flex items-center gap-2 py-2 pr-4"> Dashboard </ListItem>
@@ -142,7 +152,7 @@ export function Navber() {
   }, []);
  
   return (
-    <Navbar className="px-4 py-2 fixed z-10 shadow-none rounded-none border-none">
+    <Navbar className="px-4 py-2 fixed z-10 shadow-none rounded-none border-none max-w-screen-2xl">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Link to={'/'}>
           <Typography className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-xl font-medium font-montserrat flex gap-2"> <span className=""> HERO </span> <span className=""> EM </span> </Typography>

@@ -38,43 +38,46 @@ const MyProfile = () => {
   }
 
   return (
-    <section className="container mx-auto flex flex-col md:flex-row gap-5 items-center justify-center text-center px-8 pt-14 min-h-screen">
-      <img src={profile?.image || user?.photoURL} alt="avatar" className="w-52 h-52 rounded-lg"/>
-      <div className=''>
-        <div className="flex gap-2 items-end justify-center md:justify-start">
-          <h6 className="text-3xl font-semibold">{ profile?.name || user?.displayName}</h6>
-          <span className={`text-xs mb-1 flex gap-1 items-center px-1 rounded-full w-fit ${profile?.isVerified ? "bg-green-200 text-green-800" : "bg-red-200 text-red-800"}`}> 
-            {profile?.isVerified ? <MdOutlineVerified /> : <VscUnverified />}
-            <p className=""> {profile?.isVerified ? "Verified" : "Not Verified"} </p>
-          </span>
-        </div>
-         
-        <div className="">
-          <span className="text-base text-gray-600 flex gap-1 items-center"> 
-            <CiCircleInfo /> Designation:
-            <p className="text-sm text-gray-600"> {profile?.designation}</p>
-          </span>
-          <span className="text-base text-gray-600 flex gap-1 items-center"> 
-            <CiMail /> Email:
-            <p className=""> {profile?.email || user?.email} </p>
-          </span>
-          <span className="text-base text-gray-600 flex gap-1 items-center"> 
-            <GiHoodedFigure /> Role:
-            <p className=""> {profile?.role} </p>
-          </span>
-          <span className="text-base text-gray-600 flex gap-1 items-center"> 
-            <FaDollarSign /> Salary:
-            <p className=""> {profile?.salary} </p>
+    <div className="container mx-auto flex flex-col items-center justify-center px-8 pt-14 min-h-screen">
+      <section className="flex flex-col md:flex-row gap-5 items-center justify-center text-center">
+        <img src={profile?.image || user?.photoURL} alt="avatar" className="w-52 h-52 rounded-lg"/>
+        <div className=''>
+          <div className="flex gap-2 items-end justify-center md:justify-start">
+            <h6 className="text-3xl font-semibold">{ profile?.name || user?.displayName}</h6>
+            <span className={`text-xs mb-1 flex gap-1 items-center px-1 rounded-full w-fit ${profile?.isVerified ? "bg-green-200 text-green-800" : "bg-red-200 text-red-800"}`}> 
+              {profile?.isVerified ? <MdOutlineVerified /> : <VscUnverified />}
+              <p className=""> {profile?.isVerified ? "Verified" : "Not Verified"} </p>
             </span>
-          <span className="text-base text-gray-600 flex gap-1 items-center"> 
-            <CiBank /> Bank Account No:
-            <p className=""> {profile?.bank_account_no} </p>
-          </span>
+          </div>
+          
+          <div className="">
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <CiCircleInfo /> Designation:
+              <p className="text-sm text-gray-600"> {profile?.designation}</p>
+            </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <CiMail /> Email:
+              <p className=""> {profile?.email || user?.email} </p>
+            </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <GiHoodedFigure /> Role:
+              <p className=""> {profile?.role} </p>
+            </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <FaDollarSign /> Salary:
+              <p className=""> {profile?.salary} </p>
+              </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <CiBank /> Bank Account No:
+              <p className=""> {profile?.bank_account_no} </p>
+            </span>
+          </div>
         </div>
+      </section>
+      <div className="flex mx-auto items-center justify-center">
+        <Link to={'/update-profile'} className='btn bg-gray-800 text-white p-1 px-3 rounded-full mt-4'> update profile </Link>
       </div>
-
-      <Link to={'/update-profile'} className='btn bg-gray-200'> update profile </Link>
-    </section>
+    </div>
   );
 };
 

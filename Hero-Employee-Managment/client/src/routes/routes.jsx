@@ -18,6 +18,7 @@ import ErrorPage from '../pages/ErrorPage';
 import VisitorMessage from '../dashboard/admin/visitorMessage';
 import MyProfile from '../profile/MyProfile';
 import EditProfile from '../profile/EditProfile';
+import AllService from '../pages/AllService';
 
 const Routes = () => {
   return (
@@ -26,6 +27,7 @@ const Routes = () => {
         <Route path="/" element={<MainRoutes />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="all-service" element={<AllService />} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="update-profile" element={<EditProfile />} />
           <Route path="login" element={<SimpleLoginForm />} />

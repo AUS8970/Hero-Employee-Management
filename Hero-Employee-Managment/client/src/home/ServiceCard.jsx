@@ -4,8 +4,8 @@ import React from 'react';
 const ServiceCard = ({service}) => {
 
   return (
-    <div className="relative flex group flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg">
-      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+    <div className="relative flex group flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg overflow-hidden h-[350px]">
+      <div className="relative h-[200px] m-2.5 overflow-hidden text-white rounded-md">
         <img className='w-full h-full group-hover:scale-110 transition' src={service.image} alt="card-image" />
       </div>
       <div className="px-4">
