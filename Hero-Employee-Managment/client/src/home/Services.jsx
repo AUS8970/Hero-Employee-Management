@@ -11,7 +11,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="p-8 bg-gray-50">
+    <section className="p-8 bg-transparent">
       <h2 className="text-4xl font-bold text-center m-6">Our Services</h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         { services.map(service => ( <ServiceCard key={service.id} service={service}/> ))}

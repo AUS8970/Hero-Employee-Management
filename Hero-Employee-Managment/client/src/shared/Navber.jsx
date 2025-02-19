@@ -6,6 +6,8 @@ import useAuth from "../auth/hook/useAuth";
 import { HiOutlineLogout } from "react-icons/hi";
 import toast from "react-hot-toast";
 import useRole from "../auth/hook/useRole";
+import useTheme from "../theme/hook/useTheme";
+import { CiDark, CiLight } from "react-icons/ci";
 
 function LogOutButton(){
 
@@ -90,6 +92,8 @@ function NavList() {
 
   const role = useRole();
 
+  const { user } = useAuth();
+
   const dashboardRoute = {
     Admin: "/dashboard/all-employee-list",
     HR: "/dashboard/employee-list",
@@ -108,11 +112,18 @@ function NavList() {
           <ListItem className="flex items-center gap-2 py-2 pr-4"> All Service </ListItem>
         </Typography>
       </NavLink>
-      <NavLink to={dashboardRoute}>
-        <Typography as="a" variant="small" color="blue-gray" className="font-medium">
-          <ListItem className="flex items-center gap-2 py-2 pr-4"> Dashboard </ListItem>
-        </Typography>
-      </NavLink>
+      { user && <>
+        <NavLink to={dashboardRoute}>
+          <Typography as="a" variant="small" color="blue-gray" className="font-medium">
+            <ListItem className="flex items-center gap-2 py-2 pr-4"> Dashboard </ListItem>
+          </Typography>
+        </NavLink>
+        <NavLink to={'/profile'}>
+          <Typography as="a"variant="small" color="blue-gray" className="font-medium">
+            <ListItem className="flex items-center gap-2 py-2 pr-4"> My Profile </ListItem>
+          </Typography>
+        </NavLink>
+      </>}
       <NavLink to={'/contact'}>
         <Typography as="a"variant="small" color="blue-gray" className="font-medium">
           <ListItem className="flex items-center gap-2 py-2 pr-4"> Contact Us </ListItem>
@@ -143,6 +154,7 @@ export function Navber() {
 
   const {user} = useAuth();
   const [openNav, setOpenNav] = useState(false);
+  const { theme, toggleTheme } = useTheme();
  
   useEffect(() => {
     window.addEventListener(
@@ -158,7 +170,19 @@ export function Navber() {
           <Typography className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-xl font-medium font-montserrat flex gap-2"> <span className=""> HERO </span> <span className=""> EM </span> </Typography>
         </Link>
         <div className="hidden lg:block"> <NavList /> </div>
-        <div className="hidden gap-2 lg:flex"> { user ? <ProfileMenu /> :<LogInButton /> } </div>
+        <div className="hidden gap-2 lg:flex"> 
+          <button
+            className={`border rounded-full text-xl p-3 cursor-pointer`}
+            onClick={toggleTheme}
+            style={{
+              background: theme === "dark" ? "#333" : "#fff",
+              color: theme === "dark" ? "#fff" : "#333",
+            }}
+          >
+            {theme === "light" ? <CiDark /> : <CiLight />}
+          </button>
+          { user ? <ProfileMenu /> :<LogInButton /> } 
+          </div>
         <IconButton variant="text" className="lg:hidden" onClick={() => setOpenNav(!openNav)} >
           { openNav ? ( <XMarkIcon className="h-6 w-6" strokeWidth={2} /> ) : ( <Bars3Icon className="h-6 w-6" strokeWidth={2} />) }
         </IconButton>

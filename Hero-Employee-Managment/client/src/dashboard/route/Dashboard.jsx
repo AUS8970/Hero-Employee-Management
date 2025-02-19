@@ -45,13 +45,13 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-          <Link to={'/profile'} className="flex gap-2 items-center p-2 bg-blue-gray-200">
+          {/* <Link to={'/profile'} className="flex gap-2 items-center p-2 bg-blue-gray-200">
             <Avatar variant="circular" alt={user?.displayName} className="cursor-pointer w-16 h-16" src={user?.photoURL} />
             <div className="">
               <h2 className="text-xl font-semibold"> {user?.displayName} </h2>
               <p className=""> {user?.email} </p>
             </div>
-          </Link>
+          </Link> */}
         </nav>
       </div>
       <div className="flex-1 w-full p-4">

@@ -5,9 +5,9 @@ import useAxiosSecure from '../auth/hook/useAxiosSecure';
 import { Spinner } from '@material-tailwind/react';
 import { CiBank, CiCircleInfo, CiMail } from "react-icons/ci";
 import { GiHoodedFigure } from "react-icons/gi";
-import { FaDollarSign } from "react-icons/fa6";
+import { FaAddressCard, FaDollarSign } from "react-icons/fa6";
 import { MdOutlineVerified } from "react-icons/md";
-import { BsInfoCircleFill } from "react-icons/bs";
+import { FaPhoneAlt } from "react-icons/fa";
 import { VscUnverified } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
 
@@ -53,23 +53,31 @@ const MyProfile = () => {
           <div className="">
             <span className="text-base text-gray-600 flex gap-1 items-center"> 
               <CiCircleInfo /> Designation:
-              <p className="text-sm text-gray-600"> {profile?.designation}</p>
+              <p className="text-sm text-gray-600"> {profile?.designation  || "Add Your Designation"}</p>
             </span>
             <span className="text-base text-gray-600 flex gap-1 items-center"> 
               <CiMail /> Email:
-              <p className=""> {profile?.email || user?.email} </p>
+              <p className=""> {profile?.email || user?.email || "Add Your Email"} </p>
+            </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <FaPhoneAlt /> Phone:
+              <p className=""> {profile?.phone || user?.email || "Add Your Email"} </p>
+            </span>
+            <span className="text-base text-gray-600 flex gap-1 items-center"> 
+              <FaAddressCard /> Address:
+              <p className=""> {profile?.address || "Add Your Email"} </p>
             </span>
             <span className="text-base text-gray-600 flex gap-1 items-center"> 
               <GiHoodedFigure /> Role:
-              <p className=""> {profile?.role} </p>
+              <p className=""> {profile?.role || "Add Your Role"} </p>
             </span>
             <span className="text-base text-gray-600 flex gap-1 items-center"> 
               <FaDollarSign /> Salary:
-              <p className=""> {profile?.salary} </p>
+              <p className=""> {profile?.salary || "Add Your Salary"} </p>
               </span>
             <span className="text-base text-gray-600 flex gap-1 items-center"> 
               <CiBank /> Bank Account No:
-              <p className=""> {profile?.bank_account_no} </p>
+              <p className=""> {profile?.bank_account_no || "Add Your Bank Account No"} </p>
             </span>
           </div>
         </div>

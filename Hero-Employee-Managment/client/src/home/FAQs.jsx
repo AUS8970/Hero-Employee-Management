@@ -16,7 +16,7 @@ const FAQs = () => {
         
         <div className="join join-vertical w-full">
           {faqs.map((faq, idx) => (
-            <div className="collapse collapse-arrow join-item border-base-300 border">
+            <div key={idx} className="collapse collapse-arrow join-item border-base-300 border">
               <input type="radio" name="my-accordion-4" defaultChecked />
               <div className="collapse-title text-xl font-medium">{faq.question}</div>
               <div className="collapse-content">

@@ -6,6 +6,7 @@ import Services from './Services';
 import AboutUs from './AboutUs';
 import OurTeam from './OurTeam';
 import FAQs from './FAQs';
+import EmployeeBenefits from './EmployeeBenefits';
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
       <Services />
       <OurTeam />
       <Testimonials />
+      <EmployeeBenefits />
       <FAQs />
       <Achievements />
     </div>

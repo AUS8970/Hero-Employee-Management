@@ -9,11 +9,11 @@ import React from "react";
 const AboutUs = () => {
   return (
     <section className="py-16">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-10">
           
           {/* Left Side - Text Content */}
-          <div className="md:w-5/12 text-center md:text-left">
+          <div className="lg:w-5/12 text-center lg:text-left">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               Who We Are?
             </h2>
@@ -25,19 +25,19 @@ const AboutUs = () => {
 
             {/* Key Points */}
             <ul className="text-gray-700 space-y-2">
-              <li className='flex items-center gap-1'> 
+              <li className='flex items-center justify-center lg:justify-start gap-1'> 
                 <MdManageAccounts /> 
                 <span> Streamlined Employee Management </span> 
               </li>
-              <li className='flex items-center gap-1'> 
+              <li className='flex items-center justify-center lg:justify-start gap-1'> 
                 <RiSecurePaymentLine /> 
                 <span> Secure Payroll System </span> 
               </li>
-              <li className='flex items-center gap-1'> 
+              <li className='flex items-center justify-center lg:justify-start gap-1'> 
                 <FaChartArea /> 
                 <span> Performance & Task Tracking </span> 
               </li>
-              <li className='flex items-center gap-1'> 
+              <li className='flex items-center justify-center lg:justify-start gap-1'> 
                 <RiRobot2Fill /> 
                 <span> 24/7 HR Support & Automation </span> 
               </li>

@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css';
 import { Toaster } from 'react-hot-toast'
 import Routes from './routes/routes';
-import { ThemeProvider } from "@material-tailwind/react";
 import AuthProvider from './auth/provider/AuthProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ThemeProvider from './theme/ThemeProvider';
 
 const queryClient = new QueryClient()
 
