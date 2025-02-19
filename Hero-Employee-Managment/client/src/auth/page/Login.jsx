@@ -37,7 +37,7 @@ export function SimpleLoginForm() {
   }
 
   return (
-     <Card className="mt-24 flex mx-auto items-center" color="transparent" shadow={false}>
+     <Card className="pt-24 pb-16 flex mx-auto items-center font-montserrat" color="transparent" shadow={false}>
       <Typography className="text-4xl" variant="h4" color="blue-gray">
         Log In
       </Typography>

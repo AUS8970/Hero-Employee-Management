@@ -25,12 +25,16 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  
-  const updateProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo
-    })
+
+  const updateUserProfile = async (name, photo) => {
+    if (auth.currentUser) {
+      await updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo
+      });
+      await auth.currentUser.reload();
+      setUser({ ...auth.currentUser });
+    }
   };
 
   const signInWithGoogle = () => {
@@ -47,7 +51,7 @@ const AuthProvider = ({ children }) => {
 
       if(currentUser){
         const user = { email: currentUser.email }
-        console.log(import.meta.env.VITE_API_BASE_URL)
+        // console.log(import.meta.env.VITE_API_BASE_URL)
         axiosPublic.post('/jwt', user)
         .then(res => {
           if(res.data.token){
@@ -73,7 +77,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     logIn,
     logOut,
-    updateProfile,
+    updateUserProfile,
     signInWithGoogle,
   }
 

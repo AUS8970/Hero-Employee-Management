@@ -107,9 +107,15 @@ async function run() {
     });
 
     // users releted api
-    app.get('/users', async(req, res) => {
+    app.get('/users', verifyToken, async(req, res) => {
       const result = await userCollection.find().toArray();
       res.send(result)
+    });
+    
+    app.get('/users/:email', verifyToken, async(req, res) => {
+      const { email } = req.params;
+      const result = await userCollection.findOne({ email: email });
+      res.send(result);
     });
 
     app.get('/users/role/:email', async (req, res) => {

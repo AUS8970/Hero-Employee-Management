@@ -16,6 +16,8 @@ import AllEmployeeList from '../dashboard/admin/AllEmployeeList';
 import PrivateRoutes from './PrivateRoutes';
 import ErrorPage from '../pages/ErrorPage';
 import VisitorMessage from '../dashboard/admin/visitorMessage';
+import MyProfile from '../profile/MyProfile';
+import EditProfile from '../profile/EditProfile';
 
 const Routes = () => {
   return (
@@ -24,7 +26,9 @@ const Routes = () => {
         <Route path="/" element={<MainRoutes />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<SimpleLoginForm/>} />
+          <Route path="profile" element={<MyProfile />} />
+          <Route path="update-profile" element={<EditProfile />} />
+          <Route path="login" element={<SimpleLoginForm />} />
           <Route path="register" element={<SimpleRegisterForm />} />
           <Route path="dashboard" element={<PrivateRoutes> <Dashboard /> </PrivateRoutes>}>
             {/* Employee Routes */}

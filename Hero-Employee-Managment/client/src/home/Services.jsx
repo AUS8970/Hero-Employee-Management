@@ -1,10 +1,6 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
 
-// https://i.ibb.co.com/0p5hd24/download.jpg
-// https://i.ibb.co.com/LpJmNZM/Hrhub-pricing-bg-img.jpg
-// https://i.ibb.co.com/k45yS5x/service-detail-03.jpg
-
 const Services = () => {
 
   const services = [
